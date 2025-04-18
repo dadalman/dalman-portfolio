@@ -47,12 +47,12 @@ export default function Landing() {
           >
             See Projects
           </a>
-          <a
+          {/* <a
             href="#designs"
             className="min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition dark:bg-white dark:text-black dark:hover:bg-gray-200"
           >
             See Designs
-          </a>
+          </a> */}
           <a
             href="#about"
             className="min-w-[170px] px-6 py-2 rounded-sm border border-neutral-800 dark:border-white hover:bg-neutral-100 dark:hover:bg-white/10 transition"
