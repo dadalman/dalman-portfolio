@@ -46,31 +46,31 @@ export default function Header() {
 
       {/* Mobile Fullscreen Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white dark:bg-black flex flex-col items-center justify-center space-y-6 transition-opacity">
+        <div className="fixed inset-0 z-40 bg-white  flex flex-col items-center justify-center space-y-6 transition-opacity">
           <a
             href="/"
-            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            className="text-2xl text-gray-800  hover:underline"
             onClick={() => setIsOpen(false)}
           >
             Home
           </a>
           <a
             href="#about"
-            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            className="text-2xl text-gray-800  hover:underline"
             onClick={() => setIsOpen(false)}
           >
             About
           </a>
           <a
             href="#projects"
-            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            className="text-2xl text-gray-800  hover:underline"
             onClick={() => setIsOpen(false)}
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            className="text-2xl text-gray-800  hover:underline"
             onClick={() => setIsOpen(false)}
           >
             Contact

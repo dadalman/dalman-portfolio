@@ -55,12 +55,12 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-12 py-16 px-4 sm:px-6 bg-light dark:bg-black text-neutral-900 dark:text-white"
+      className="scroll-mt-12 py-16 px-4 sm:px-6 bg-light  text-neutral-900"
     >
       <div className="text-center space-y-4">
         <h2 className="text-3xl sm:text-4xl font-bold">PROJECTS</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
-        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700 dark:text-gray-300">
+        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700">
           Check out some of the projects I've worked on, from hackathons to full
           applications, showcasing my passion for problem-solving through tech!
         </p>
@@ -88,7 +88,7 @@ export default function Projects() {
                 {project.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="inline-block px-2 py-1 text-xs font-semibold text-neutral-700 dark:text-neutral-300 bg-primary dark:bg-neutral-600 rounded-sm mr-1"
+                    className="inline-block px-2 py-1 text-xs font-semibold text-neutral-700 bg-primary  rounded-sm mr-1"
                   >
                     {tag}
                   </span>

@@ -41,12 +41,12 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="scroll-mt-12 py-16 px-4 sm:px-6 bg-white dark:bg-black text-neutral-900 dark:text-white"
+      className="scroll-mt-12 py-16 px-4 sm:px-6 bg-white  text-neutral-900 "
     >
       <div className="text-center space-y-4">
         <h2 className="text-3xl sm:text-4xl font-bold">ABOUT ME</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
-        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700 dark:text-gray-300">
+        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700 ">
           I am a hackathon enthusiast and a software engineer, always learning
           and striving to grow both professionally and in life!
         </p>
@@ -71,7 +71,7 @@ export default function AboutMe() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex flex-col sm:flex-row items-start gap-4 hover:bg-gray-100 dark:hover:bg-white/5 p-2 rounded-lg transition mb-3 sm:mb-8">
+                <div className="flex flex-col sm:flex-row items-start gap-4 hover:bg-gray-100 p-2 rounded-lg transition mb-3 sm:mb-8">
                   <div className="w-full sm:min-w-[120px] sm:w-[120px] h-[120px] relative rounded-sm overflow-hidden bg-black border-dark border">
                     <Image
                       src={event.img}
@@ -87,12 +87,10 @@ export default function AboutMe() {
                     <span className="text-xs text-primary-400 font-medium">
                       {event.label}
                     </span>
-                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-500 ">
                       {event.date}
                     </p>
-                    <p className="text-sm mt-1 text-gray-700 dark:text-gray-300">
-                      {event.desc}
-                    </p>
+                    <p className="text-sm mt-1 text-gray-700 ">{event.desc}</p>
                   </div>
                 </div>
               </Link>
@@ -133,7 +131,7 @@ export default function AboutMe() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm text-sm font-bold text-dark"
+                    className="bg-primary  px-3 py-1 rounded-sm text-sm font-bold text-dark"
                   >
                     {skill}
                   </span>
