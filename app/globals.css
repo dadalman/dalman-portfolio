@@ -6,6 +6,10 @@
   --font-sans: "Sansation", Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --color-primary-50: #fff4e6;
   --color-primary-100: #ffe1c2;
@@ -132,4 +136,17 @@ body {
 
 .animate-float-fast {
   animation: floatFast 5s ease-in-out infinite;
+}
+
+@keyframes swipeUpLoop {
+  0% {
+    transform: translateY(170%);
+  }
+  100% {
+    transform: translateY(30%);
+  }
+}
+
+.animate-swipe-up-loop {
+  animation: swipeUpLoop 2s ease-in-out infinite;
 }

@@ -1,4 +1,5 @@
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
@@ -7,20 +8,20 @@ export default function Header() {
   return (
     <>
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 md:py-4 py-4 shadow-md bg-primary">
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:py-4 py-4 shadow-md bg-primary">
         {/* Left: Logo and Brand Name */}
-        <div className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3">
           <img
             src="/assets/images/profile-img.jpg"
             alt="Logo"
             className="w-13 h-13 rounded-full"
           />
           <span className="text-xl font-bold text-gray-800">DHAYNAMICO</span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
-          <a href="#home" className="text-gray-600 hover:text-black text-xl">
+          <a href="/" className="text-gray-600 hover:text-black text-xl">
             Home
           </a>
           <a href="#about" className="text-gray-600 hover:text-black text-xl">

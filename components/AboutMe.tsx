@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SwipeCapsule from "./SwipeCapsule";
 
 const events = [
   {
@@ -40,12 +41,12 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="py-20 px-6 bg-white dark:bg-black text-neutral-900 dark:text-white"
+      className="scroll-mt-12 py-16 px-4 sm:px-6 bg-white dark:bg-black text-neutral-900 dark:text-white"
     >
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold">ABOUT ME</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold">ABOUT ME</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
-        <p className="max-w-xl mx-auto text-lg text-gray-700 dark:text-gray-300">
+        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700 dark:text-gray-300">
           I am a hackathon enthusiast and a software engineer, always learning
           and striving to grow both professionally and in life!
         </p>
@@ -55,14 +56,14 @@ export default function AboutMe() {
         {/* Left Side - Life & Events */}
         <div className="space-y-2">
           <div className="pl-2">
-            <h3 className="text-2xl font-semibold">life</h3>
-            <p className="text-sm mt-1 text-muted">
+            <h3 className="text-xl sm:text-2xl font-semibold">life</h3>
+            <p className="text-xs sm:text-sm mt-1 text-muted">
               #hackathon_champion #software_engineer #leader #coder #designer
               #business_strategist #all_rounder
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-10 sm:space-y-8 mt-4 sm:mt-0">
             {events.map((event, i) => (
               <Link
                 key={i}
@@ -70,8 +71,8 @@ export default function AboutMe() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex items-start gap-4 hover:bg-gray-100  dark:hover:bg-white/5 p-2 rounded-lg transition">
-                  <div className="min-w-[120px] h-[120px] relative rounded-sm overflow-hidden bg-black border-dark border">
+                <div className="flex flex-col sm:flex-row items-start gap-4 hover:bg-gray-100 dark:hover:bg-white/5 p-2 rounded-lg transition mb-3 sm:mb-8">
+                  <div className="w-full sm:min-w-[120px] sm:w-[120px] h-[120px] relative rounded-sm overflow-hidden bg-black border-dark border">
                     <Image
                       src={event.img}
                       alt={event.name}
@@ -79,12 +80,14 @@ export default function AboutMe() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-lg">{event.name}</h4>
+                  <div className="-mt-2 sm:mt-0">
+                    <h4 className="font-bold text-base sm:text-lg">
+                      {event.name}
+                    </h4>
                     <span className="text-xs text-primary-400 font-medium">
                       {event.label}
                     </span>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                       {event.date}
                     </p>
                     <p className="text-sm mt-1 text-gray-700 dark:text-gray-300">
@@ -98,13 +101,14 @@ export default function AboutMe() {
         </div>
 
         {/* Right Side - Skills */}
-        <div className="space-y-1">
-          <h3 className="text-2xl font-semibold">skills</h3>
+        <div className="space-y-4 px-2">
+          <h3 className="text-xl sm:text-2xl font-semibold">skills</h3>
 
-          <div>
-            <h4 className="text-md font-medium text-dark">front-end</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {[
+          {/* Skill categories */}
+          {[
+            {
+              title: "front-end",
+              skills: [
                 "react native",
                 "next.js",
                 "angular",
@@ -112,62 +116,37 @@ export default function AboutMe() {
                 "css",
                 "sass",
                 "html",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm text-md font-bold text-dark"
-                >
-                  {skill}
-                </span>
-              ))}
+              ],
+            },
+            { title: "back-end", skills: ["mongodb", "express.js"] },
+            {
+              title: "design",
+              skills: ["figma", "canva", "responsive design"],
+            },
+            { title: "else", skills: ["git", "github", "node.js"] },
+          ].map((group) => (
+            <div key={group.title}>
+              <h4 className="text-sm sm:text-md font-medium text-dark">
+                {group.title}
+              </h4>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm text-sm font-bold text-dark"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-
-          <div>
-            <h4 className="text-md font-medium text-dark">back-end</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["mongodb", "express.js"].map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm text-md font-bold text-dark"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-md font-medium text-dark">design</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["figma", "canva", "responsive design"].map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm  text-md font-bold text-dark"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-md font-medium text-dark">else</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["git", "github", "node.js"].map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-primary dark:bg-white/10 px-3 py-1 rounded-sm text-md font-bold text-dark"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <p className="text-md text-dark mt-8 mx-24">🧑🏻‍💻 software engineer</p>
+      <p className="text-sm text-dark mt-10 text-center sm:text-left sm:mx-24">
+        🧑🏻‍💻 software engineer
+      </p>
     </section>
   );
 }
