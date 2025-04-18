@@ -7,11 +7,11 @@ export default function Header() {
   return (
     <>
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 md:py-5 py-4 shadow-md">
+      <nav className="flex items-center justify-between px-6 md:py-4 py-4 shadow-md bg-primary">
         {/* Left: Logo and Brand Name */}
         <div className="flex items-center space-x-3">
           <img
-            src="/assets/icons/temp-logo.png"
+            src="/assets/images/profile-img.jpg"
             alt="Logo"
             className="w-13 h-13 rounded-full"
           />
