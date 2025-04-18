@@ -39,24 +39,40 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden z-50" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
 
-      {/* Mobile Navigation Links */}
+      {/* Mobile Fullscreen Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden flex flex-col items-start px-6 py-2 space-y-3 bg-white shadow-md">
-          <a href="#home" className="text-gray-700">
+        <div className="fixed inset-0 z-40 bg-white dark:bg-black flex flex-col items-center justify-center space-y-6 transition-opacity">
+          <a
+            href="/"
+            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </a>
-          <a href="#about" className="text-gray-700">
+          <a
+            href="#about"
+            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
             About
           </a>
-          <a href="#projects" className="text-gray-700">
+          <a
+            href="#projects"
+            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
             Projects
           </a>
-          <a href="#contact" className="text-gray-700">
+          <a
+            href="#contact"
+            className="text-2xl text-gray-800 dark:text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </a>
         </div>
