@@ -14,7 +14,7 @@ export default function Projects() {
         "Worked on the front-end of Enstack Magic, an AI-powered tool that helps entrepreneurs instantly generate product descriptions, promotional posts, and sales content.",
       image: "/assets/images/enstack-magic-banner.png",
       tags: ["angular", "mobile app", "sass"],
-      link: "https://www.figma.com/proto/95QtUeX5RpYNsEE11iO0he/MemoRise?node-id=1-2&starting-point-node-id=1%3A2",
+      link: "https://www.enstack.com/magic",
     },
     {
       title: "Fanhub: Idol NFC Community",
