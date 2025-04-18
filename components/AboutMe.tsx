@@ -110,6 +110,7 @@ export default function AboutMe() {
                 "react native",
                 "next.js",
                 "angular",
+                "swiftui",
                 "tailwindcss",
                 "css",
                 "sass",
@@ -121,7 +122,7 @@ export default function AboutMe() {
               title: "design",
               skills: ["figma", "canva", "responsive design"],
             },
-            { title: "else", skills: ["git", "github", "node.js"] },
+            { title: "else", skills: ["xcode", "git", "github", "node.js"] },
           ].map((group) => (
             <div key={group.title}>
               <h4 className="text-sm sm:text-md font-medium text-dark">
