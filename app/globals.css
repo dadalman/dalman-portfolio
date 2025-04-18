@@ -3,13 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sans: "Sansation", Arial, Helvetica, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Sansation", Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --color-primary: #ffdcb4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,43 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* @base, @components, @utilities, @apply, @layer */
+/* shadcn/ui */
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/sansation/Sansation-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/sansation/Sansation-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/sansation/Sansation-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/sansation/Sansation-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/sansation/Sansation-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
 }
