@@ -8,6 +8,7 @@ import SwipeCapsule from "@/components/SwipeCapsule";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import DesignProcess from "@/components/DesignProcess";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
         </section> */}
         <AboutMe />
         <Projects />
+
+        <DesignProcess />
         <Contact />
         <Footer />
       </main>

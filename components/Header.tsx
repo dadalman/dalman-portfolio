@@ -33,6 +33,12 @@ export default function Header() {
           >
             Projects
           </a>
+          <a
+            href="#design-process"
+            className="text-gray-600 hover:text-black text-xl"
+          >
+            Design
+          </a>
           <a href="#contact" className="text-gray-600 hover:text-black text-xl">
             Contact
           </a>
@@ -67,6 +73,13 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           >
             Projects
+          </a>
+          <a
+            href="#design-process"
+            className="text-2xl text-gray-800  hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Design
           </a>
           <a
             href="#contact"

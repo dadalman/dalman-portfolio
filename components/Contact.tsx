@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-12 py-20 -mb-20 px-6 bg-white  text-neutral-900 "
+      className="scroll-mt-12 py-20 -mb-20 px-6 bg-light  text-neutral-900 "
     >
       <div className="max-w-xl mx-auto text-center space-y-6">
         <h2 className="text-4xl font-bold">CONTACT ME</h2>
@@ -23,21 +23,21 @@ export default function Contact() {
             type="text"
             name="name"
             placeholder="Your Name"
-            className="w-full p-3 rounded-md bg-gray-100 focus:outline-none"
+            className="w-full p-3 rounded-sm bg-gray-100 focus:outline-none border-primary-200 focus:border-primary-400 border-1"
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Your Email"
-            className="w-full p-3 rounded-md bg-gray-100  focus:outline-none"
+            className="w-full p-3 rounded-sm bg-gray-100  focus:outline-none border-primary-200 focus:border-primary-400 border-1"
             required
           />
           <textarea
             name="message"
             placeholder="Your Message"
             rows={4}
-            className="w-full p-3 rounded-md bg-gray-100  focus:outline-none"
+            className="w-full p-3 rounded-sm bg-gray-100  focus:outline-none border-primary-200 focus:border-primary-400 border-1"
             required
           ></textarea>
           <button

@@ -48,6 +48,12 @@ export default function Landing() {
             See Projects
           </a>
           <a
+            href="#design-process"
+            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition"
+          >
+            Design Process
+          </a>
+          <a
             href="#about"
             className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm border border-neutral-800 hover:bg-neutral-100 transition"
           >

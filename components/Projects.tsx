@@ -83,7 +83,7 @@ export default function Projects() {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+            className="group relative overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition duration-300"
           >
             <img
               src={project.image}
