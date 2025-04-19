@@ -47,9 +47,9 @@ export default function AboutMe() {
         <h2 className="text-3xl sm:text-4xl font-bold">ABOUT ME</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
         <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700">
-          I'm a passionate software developer, mobile app creator, and UI/UX
-          designer. I thrive on learning fast, building thoughtful user
-          experiences, and solving real-world problems through tech.
+          I'm a hackathon enthusiast and a software engineer who thrives on
+          learning fast, building thoughtful user experiences, and solving
+          real-world problems through tech!
         </p>
       </div>
 

@@ -69,8 +69,9 @@ export default function Projects() {
         <h2 className="text-3xl sm:text-4xl font-bold">PROJECTS</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
         <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700">
-          Check out some of the projects I've worked on, from hackathons to full
-          applications, showcasing my passion for problem-solving through tech!
+          A collection of my work—from real-world apps to innovative
+          prototypes—showcasing my skills in front-end development, UI/UX
+          design, and product thinking!
         </p>
       </div>
 
