@@ -29,7 +29,7 @@ export default function Projects() {
       description:
         "A web app that lets users rank their favorite trainees from a survival show.",
       image: "/assets/images/btn-bias-list-banner.png",
-      tags: ["next.js", "tailwindcss", "figma"],
+      tags: ["Next.js", "TailwindCSS", "Figma"],
       link: "https://btn-my-bias-list.vercel.app/",
     },
     {
@@ -37,7 +37,7 @@ export default function Projects() {
       description:
         "A productivity app that uses spaced repetition and AI-generated flashcards to help users retain information faster and longer.",
       image: "/assets/images/memorise-banner.png",
-      tags: ["figma", "hi-fidelity", "prototype"],
+      tags: ["Figma", "Hi-Fidelity", "Prototype"],
       link: "https://www.figma.com/proto/95QtUeX5RpYNsEE11iO0he/MemoRise?node-id=1-2&starting-point-node-id=1%3A2",
     },
     {
@@ -45,7 +45,7 @@ export default function Projects() {
       description:
         "A mobile movie app built with React Native by following a guided tutorial. Features include movie browsing and detail views.",
       image: "/assets/images/mobile-movie-banner.png",
-      tags: ["react native", "expo", "mobile app"],
+      tags: ["React Native", "Expo", "Mobile App"],
       link: "https://github.com/dadalman/mobile-movie-app",
     },
     // {

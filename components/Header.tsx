@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <>
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:py-4 py-4 shadow-md bg-primary">
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 md:py-4 py-4 shadow-md bg-primary">
         {/* Left: Logo and Brand Name */}
         <Link href="/" className="flex items-center space-x-3">
           <img

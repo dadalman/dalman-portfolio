@@ -43,25 +43,19 @@ export default function Landing() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
           <a
             href="#projects"
-            className="min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition "
+            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition"
           >
             See Projects
           </a>
-          {/* <a
-            href="#designs"
-            className="min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition dark:bg-white dark:text-black dark:hover:bg-gray-200"
-          >
-            See Designs
-          </a> */}
           <a
             href="#about"
-            className="min-w-[170px] px-6 py-2 rounded-sm border border-neutral-800  hover:bg-neutral-100  transition"
+            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm border border-neutral-800 hover:bg-neutral-100 transition"
           >
             More About Me
           </a>
           <a
             href="#contact"
-            className="min-w-[170px] px-6 py-2 rounded-sm bg-primary text-black hover:bg-orange-300 transition"
+            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-primary text-black hover:bg-orange-300 transition"
           >
             Contact Me
           </a>

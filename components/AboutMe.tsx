@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import SwipeCapsule from "./SwipeCapsule";
+// import SwipeCapsule from "./SwipeCapsule";
 
 const events = [
   {
@@ -8,7 +8,7 @@ const events = [
     name: "Xircus Web3 Hackathon",
     label: "Champion",
     date: "April 2023",
-    desc: "Won the grand prize for building an AI-powered community platform.",
+    desc: "Won the grand prize for building an Idol NFC Community platform.",
     link: "https://www.facebook.com/share/p/15NvnEjfTh/",
   },
   {
@@ -16,7 +16,7 @@ const events = [
     name: "#AI4ALLMINDS Hackathon",
     label: "Champion",
     date: "June 2023",
-    desc: "Built and pitched a functional MVP in under 48 hours.",
+    desc: "Built and pitched an AI-powered study assistant that learns with the user to give efficient learning modules.",
     link: "https://www.facebook.com/share/p/1XGbveeNvr/",
   },
   {
@@ -24,7 +24,7 @@ const events = [
     name: "ENHACK: Hackathon for SMEs",
     label: "Champion",
     date: "July 2023",
-    desc: "Gave a talk on building performant cross-platform apps with React Native.",
+    desc: "Built an AI-powered mobile app to help SMEs track their progress, manage their inventory, and manage sales.",
     link: "https://www.facebook.com/share/p/1Coi2dD6Bp/",
   },
   {
@@ -32,7 +32,7 @@ const events = [
     name: "Employee @Enstack Technologies, Inc.",
     label: "Software Engineer",
     date: "July 2023 - December 2024",
-    desc: "Led the winning team for a real-world client redesign challenge.",
+    desc: "Worked as a software engineer, focusing on front-end development.",
     link: "https://www.enstack.com/",
   },
 ];
@@ -46,9 +46,10 @@ export default function AboutMe() {
       <div className="text-center space-y-4">
         <h2 className="text-3xl sm:text-4xl font-bold">ABOUT ME</h2>
         <div className="w-16 h-1 mx-auto bg-primary-400" />
-        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700 ">
-          I am a hackathon enthusiast and a software engineer, always learning
-          and striving to grow both professionally and in life!
+        <p className="max-w-xl mx-auto text-base sm:text-lg text-gray-700">
+          I'm a passionate software developer, mobile app creator, and UI/UX
+          designer. I thrive on learning fast, building thoughtful user
+          experiences, and solving real-world problems through tech.
         </p>
       </div>
 
