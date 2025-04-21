@@ -35,7 +35,7 @@ export default function Projects() {
     {
       title: "MemoRise",
       description:
-        "A productivity app that uses spaced repetition and AI-generated flashcards to help users retain information faster and longer.",
+        "A productivity app using spaced repetition and AI-generated flashcards. I designed it entirely from scratch — from wireframes to a high-fidelity, interactive Figma prototype.",
       image: "/assets/images/memorise-banner.png",
       tags: ["Figma", "Hi-Fidelity", "Prototype"],
       link: "https://www.figma.com/proto/95QtUeX5RpYNsEE11iO0he/MemoRise?node-id=1-2&starting-point-node-id=1%3A2",
