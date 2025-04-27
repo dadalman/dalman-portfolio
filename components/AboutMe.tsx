@@ -123,7 +123,17 @@ export default function AboutMe() {
               title: "design",
               skills: ["figma", "canva", "responsive design"],
             },
-            { title: "else", skills: ["xcode", "git", "github", "node.js"] },
+            {
+              title: "else",
+              skills: [
+                "python",
+                "selenium",
+                "xcode",
+                "git",
+                "github",
+                "node.js",
+              ],
+            },
           ].map((group) => (
             <div key={group.title}>
               <h4 className="text-sm sm:text-md font-medium text-dark">
