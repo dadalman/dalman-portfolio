@@ -4,20 +4,20 @@ import Link from "next/link";
 
 const events = [
   {
-    img: "/assets/images/xircus-hackathon-banner.jpg",
-    name: "Xircus Web3 Hackathon",
-    label: "Champion",
-    date: "April 2023",
-    desc: "Won the grand prize for building an Idol NFC Community platform.",
-    link: "https://www.facebook.com/share/p/15NvnEjfTh/",
+    img: "/assets/images/codebility-se-logo.jpeg",
+    name: "Frontend Developer @Codebility",
+    label: "Software Engineer",
+    date: "May 2024 - Present",
+    desc: "Working as a frontend software developer, focusing on building user-friendly mobile applications.",
+    link: "https://www.codebility.tech/",
   },
   {
-    img: "/assets/images/ai4allminds-banner.jpg",
-    name: "#AI4ALLMINDS Hackathon",
-    label: "Champion",
-    date: "June 2023",
-    desc: "Built and pitched an AI-powered study assistant that learns with the user to give efficient learning modules.",
-    link: "https://www.facebook.com/share/p/1XGbveeNvr/",
+    img: "/assets/images/enstack-web-banner.png",
+    name: "Employee @Enstack Technologies, Inc.",
+    label: "Software Engineer",
+    date: "July 2023 - December 2024",
+    desc: "Worked as a software engineer, focusing on front-end development.",
+    link: "https://www.enstack.com/",
   },
   {
     img: "/assets/images/enhack-banner.jpg",
@@ -28,12 +28,20 @@ const events = [
     link: "https://www.facebook.com/share/p/1Coi2dD6Bp/",
   },
   {
-    img: "/assets/images/enstack-web-banner.png",
-    name: "Employee @Enstack Technologies, Inc.",
-    label: "Software Engineer",
-    date: "July 2023 - December 2024",
-    desc: "Worked as a software engineer, focusing on front-end development.",
-    link: "https://www.enstack.com/",
+    img: "/assets/images/ai4allminds-banner.jpg",
+    name: "#AI4ALLMINDS Hackathon",
+    label: "Champion",
+    date: "June 2023",
+    desc: "Built and pitched an AI-powered study assistant that learns with the user to give efficient learning modules.",
+    link: "https://www.facebook.com/share/p/1XGbveeNvr/",
+  },
+  {
+    img: "/assets/images/xircus-hackathon-banner.jpg",
+    name: "Xircus Web3 Hackathon",
+    label: "Champion",
+    date: "April 2023",
+    desc: "Won the grand prize for building an Idol NFC Community platform.",
+    link: "https://www.facebook.com/share/p/15NvnEjfTh/",
   },
 ];
 
@@ -118,21 +126,14 @@ export default function AboutMe() {
                 "html",
               ],
             },
-            { title: "back-end", skills: ["mongodb", "express.js"] },
+            { title: "back-end", skills: ["node.js", "mongodb", "express.js"] },
             {
               title: "design",
               skills: ["figma", "canva", "responsive design"],
             },
             {
               title: "else",
-              skills: [
-                "python",
-                "selenium",
-                "xcode",
-                "git",
-                "github",
-                "node.js",
-              ],
+              skills: ["python", "selenium", "xcode", "git", "github"],
             },
           ].map((group) => (
             <div key={group.title}>
