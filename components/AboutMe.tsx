@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const skills = [
   {
     group: "Frontend",
@@ -24,12 +26,6 @@ const skills = [
   },
 ];
 
-const recognition = [
-  { award: "Champion", event: "ENHACK — Hackathon for SMEs", year: "2023" },
-  { award: "Champion", event: "#AI4ALLMINDS Hackathon", year: "2023" },
-  { award: "Grand Prize", event: "Xircus Web3 Hackathon", year: "2023" },
-];
-
 export default function AboutMe() {
   return (
     <section
@@ -43,12 +39,22 @@ export default function AboutMe() {
             <h2 className="mb-8 font-display text-3xl font-bold tracking-tight sm:text-4xl">
               About
             </h2>
-            <div className="space-y-5 text-lg leading-relaxed text-muted">
-              <p>
-                I&apos;m a software engineer and designer who likes to own the
-                whole arc of a product — from the first wireframe to the deployed
-                build. I move fast, sweat the details, and care most about
-                shipping things people actually use.
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
+              <div className="group relative aspect-[4/5] w-44 shrink-0 overflow-hidden rounded-sm border border-line sm:w-52">
+                <Image
+                  src="/assets/images/profile.png"
+                  alt="Denver Dalman"
+                  fill
+                  sizes="220px"
+                  className="object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
+                />
+              </div>
+              <div className="space-y-5 text-lg leading-relaxed text-muted">
+                <p>
+                I&apos;m a software engineer and designer with 5 years of
+                experience who likes to own the whole arc of a product — from the
+                first wireframe to the deployed build. I move fast, sweat the
+                details, and care most about shipping things people actually use.
               </p>
               <p>
                 Lately I&apos;ve been founding{" "}
@@ -62,26 +68,8 @@ export default function AboutMe() {
                 </a>{" "}
                 and building products for teams and idol communities across the
                 web.
-              </p>
-            </div>
-
-            <div className="mt-12">
-              <h3 className="label mb-5">Recognition</h3>
-              <ul className="space-y-3">
-                {recognition.map((r) => (
-                  <li
-                    key={r.event}
-                    className="flex items-baseline justify-between gap-4 border-b border-line pb-3"
-                  >
-                    <span className="text-sm">
-                      <span className="text-accent">{r.award}</span>
-                      <span className="mx-2 text-faint">·</span>
-                      {r.event}
-                    </span>
-                    <span className="label tabular-nums">{r.year}</span>
-                  </li>
-                ))}
-              </ul>
+                </p>
+              </div>
             </div>
           </div>
 

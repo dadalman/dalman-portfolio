@@ -30,8 +30,10 @@ export default function CustomCursor() {
     let ringY = mouseY;
     let raf = 0;
 
+    // translate(-50%, -50%) centers each element relative to its own size,
+    // so the ring stays centered on the dot even as it grows on hover.
     const place = () => {
-      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
     };
     place();
 
@@ -44,7 +46,7 @@ export default function CustomCursor() {
     const loop = () => {
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
-      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
       raf = requestAnimationFrame(loop);
     };
 
@@ -74,23 +76,19 @@ export default function CustomCursor() {
       <div
         ref={dotRef}
         className="pointer-events-none fixed left-0 top-0 z-[9999] h-[6px] w-[6px] rounded-full bg-fg"
-        style={{ marginLeft: "-3px", marginTop: "-3px" }}
       />
       <div
         ref={ringRef}
         className="cursor-ring pointer-events-none fixed left-0 top-0 z-[9998] h-8 w-8 rounded-full border border-fg/40"
-        style={{ marginLeft: "-16px", marginTop: "-16px" }}
       />
       <style jsx global>{`
         .cursor-ring {
-          transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
-            border-color 0.2s ease, background-color 0.2s ease;
+          transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease,
+            background-color 0.2s ease;
         }
         .cursor-ring--active {
           width: 56px;
           height: 56px;
-          margin-left: -28px;
-          margin-top: -28px;
           border-color: var(--accent);
           background-color: color-mix(in srgb, var(--accent) 12%, transparent);
         }

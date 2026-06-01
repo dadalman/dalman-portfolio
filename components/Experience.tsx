@@ -8,17 +8,17 @@ const roles = [
   },
   {
     period: "2025 — Now",
-    company: "Ryval",
+    company: "RYVAL",
     role: "Software Engineer",
     desc: "Building and shipping product features across the stack.",
-    href: "",
+    href: "https://ryval.com",
   },
   {
     period: "2025 — 2026",
     company: "Unit Network",
     role: "Software Engineer · Full-time",
     desc: "Full-time engineer for ten months, delivering production web features.",
-    href: "",
+    href: "https://unit.network/",
   },
   {
     period: "2024 — 2025",
@@ -36,59 +36,122 @@ const roles = [
   },
 ];
 
+const awards = [
+  {
+    award: "Champion",
+    event: "ENHACK — Hackathon for SMEs",
+    year: "2023",
+    desc: "Built an AI-powered mobile app that helps SMEs track progress, manage inventory, and run sales.",
+    href: "https://www.facebook.com/share/p/1Coi2dD6Bp/",
+  },
+  {
+    award: "Champion",
+    event: "#AI4ALLMINDS Hackathon",
+    year: "2023",
+    desc: "Built and pitched an AI study assistant that learns with the user to deliver efficient learning modules.",
+    href: "https://www.facebook.com/share/p/1XGbveeNvr/",
+  },
+  {
+    award: "Grand Prize",
+    event: "Xircus Web3 Hackathon",
+    year: "2023",
+    desc: "Won the grand prize for building an idol NFC community platform.",
+    href: "https://www.facebook.com/share/p/15NvnEjfTh/",
+  },
+];
+
 export default function Experience() {
   return (
     <section
       id="experience"
       className="scroll-mt-16 border-b border-line py-24 md:py-32"
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <h2 className="mb-16 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          Experience
-        </h2>
-
-        <div className="border-t border-line">
-          {roles.map((r) => {
-            const inner = (
-              <div className="grid gap-2 py-8 md:grid-cols-[200px_1fr] md:gap-10">
-                <span className="label pt-1 tabular-nums">{r.period}</span>
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-x-3">
-                    <h3 className="font-display text-xl font-bold tracking-tight sm:text-2xl">
+      <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-[1.25fr_1fr] md:gap-20 md:px-10">
+        {/* Experience */}
+        <div>
+          <h2 className="mb-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            Experience
+          </h2>
+          <p className="mb-12 text-sm leading-relaxed text-muted">
+            5 years building for the web — freelance since 2021.
+          </p>
+          <div className="border-t border-line">
+            {roles.map((r) => {
+              const inner = (
+                <>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg font-bold tracking-tight sm:text-xl">
                       {r.company}
+                      {r.href && (
+                        <span className="ml-2 text-sm text-muted transition-colors group-hover:text-accent">
+                          ↗
+                        </span>
+                      )}
                     </h3>
-                    {r.href && (
-                      <span className="text-sm text-muted transition-colors group-hover:text-accent">
-                        ↗
-                      </span>
-                    )}
+                    <span className="label shrink-0 tabular-nums">
+                      {r.period}
+                    </span>
                   </div>
-                  <p className="mt-0.5 text-sm font-medium text-accent">
+                  <p className="mt-1 text-sm font-medium text-accent">
                     {r.role}
                   </p>
-                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
                     {r.desc}
                   </p>
-                </div>
-              </div>
-            );
+                </>
+              );
 
-            return r.href ? (
+              return r.href ? (
+                <a
+                  key={r.company}
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block border-b border-line py-6 transition-colors hover:bg-accent-soft"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={r.company} className="border-b border-line py-6">
+                  {inner}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Recognition */}
+        <div id="recognition" className="scroll-mt-16">
+          <h2 className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            Recognition
+          </h2>
+          <div className="border-t border-line">
+            {awards.map((a) => (
               <a
-                key={r.company}
-                href={r.href}
+                key={a.event}
+                href={a.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border-b border-line transition-colors hover:bg-accent-soft"
+                className="group block border-b border-line py-6 transition-colors hover:bg-accent-soft"
               >
-                {inner}
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-lg font-bold tracking-tight sm:text-xl">
+                    {a.event}
+                    <span className="ml-2 text-sm text-muted transition-colors group-hover:text-accent">
+                      ↗
+                    </span>
+                  </h3>
+                  <span className="label shrink-0 tabular-nums">{a.year}</span>
+                </div>
+                <p className="mt-1 text-sm font-medium text-accent">
+                  {a.award}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {a.desc}
+                </p>
               </a>
-            ) : (
-              <div key={r.company} className="border-b border-line">
-                {inner}
-              </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

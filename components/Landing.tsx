@@ -33,8 +33,8 @@ export default function Landing() {
             >
               POPDOM
             </a>
-            . I build and ship products end to end — from interface to
-            production.
+            . 5 years building and shipping products end to end — from
+            interface to production.
           </p>
 
           <div className="flex flex-col gap-3 md:items-end">

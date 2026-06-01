@@ -8,8 +8,10 @@ type Work = {
   year: string;
   role: string;
   desc: string;
+  contribution: string;
   href: string;
   img?: string;
+  mobile?: boolean;
   stack?: string[];
 };
 
@@ -18,9 +20,12 @@ const work: Work[] = [
     title: "POPDOM",
     year: "2026",
     role: "Founder",
-    desc: "A platform to collect and trade idol photocards — digital drops and real cards delivered to your door.",
+    desc: "A collectibles platform for idol culture — artists drop digital and physical photocards with rarity tiers, and fans collect and trade them in a built-in marketplace.",
+    contribution:
+      "Founded POPDOM and built the entire product end to end — product direction, UX, front-end, and backend, including the collection and drops systems.",
     href: "https://popdom.app",
-    img: "/assets/work/popdom.png",
+    img: "/assets/work/popdom-mobile.png",
+    mobile: true,
     stack: ["React", "TanStack Query", "Supabase", "Firebase", "PWA"],
   },
   {
@@ -28,8 +33,11 @@ const work: Work[] = [
     year: "2026",
     role: "Mobile Game · Shipped",
     desc: "The official PROJECT WAN game — built and shipped to the App Store.",
+    contribution:
+      "Designed and developed the game and shipped it to the App Store, wrapping the React build natively with Capacitor.",
     href: "https://apps.apple.com/us/app/project-wan-chronicles/id6758196754",
-    img: "/assets/work/projectwan-chronicles.png",
+    img: "/assets/work/projectwan-chronicles-mobile.png",
+    mobile: true,
     stack: ["React", "Capacitor", "Supabase"],
   },
   {
@@ -37,6 +45,8 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Turn physical cards into immersive augmented-reality experiences — no app needed.",
+    contribution:
+      "Designed and built the product and its site end to end, including the in-browser AR experience.",
     href: "https://holodream.app",
     img: "/assets/work/holodream.png",
   },
@@ -45,6 +55,8 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Official site for the P-pop idol group PROJECT WAN.",
+    contribution:
+      "Designed and built the official group site from scratch.",
     href: "https://projectwan.live",
     img: "/assets/work/projectwan.png",
   },
@@ -53,6 +65,8 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Anonymous, embeddable comment sections you can drop anywhere.",
+    contribution:
+      "Designed and built the product end to end — the embeddable comment widget and the dashboard.",
     href: "https://anonybox.space",
     img: "/assets/work/anonybox.png",
   },
@@ -61,6 +75,7 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Studio site for a product and engineering lab — engineer your narrative.",
+    contribution: "Designed and built the studio's site from scratch.",
     href: "https://dominionlabs.studio",
     img: "/assets/work/dominionlabs.png",
   },
@@ -69,6 +84,7 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Create auction links, share them anywhere, and collect bids.",
+    contribution: "Designed and built the product end to end.",
     href: "https://biditlink.com",
     img: "/assets/work/biditlink.png",
   },
@@ -77,33 +93,90 @@ const work: Work[] = [
     year: "2025",
     role: "Design + Build",
     desc: "Track your projects and the time you spend on them.",
+    contribution: "Designed and built the app from scratch.",
     href: "https://focus-strip.vercel.app",
-    img: "/assets/work/focus-strip.png",
+    img: "/assets/work/focus-strip-mobile.png",
+    mobile: true,
   },
+];
+
+// Older / smaller pieces — kept for depth, shown compactly so they don't
+// compete with the flagship work above.
+const earlier = [
   {
     title: "Enstack Magic",
-    year: "2024",
     role: "Frontend Lead",
-    desc: "AI-powered tool for entrepreneurs — I led the front-end.",
+    year: "2024",
     href: "https://www.enstack.com/magic",
-    img: "/assets/work/enstack-magic.png",
   },
   {
     title: "Be the NEXT — My Bias List",
-    year: "2024",
     role: "Design + Build",
-    desc: "Rank your favorite trainees from a survival show.",
+    year: "2024",
     href: "https://btn-my-bias-list.vercel.app/",
-    img: "/assets/work/btn-bias-list.png",
   },
   {
     title: "MemoRise",
-    year: "2023",
     role: "Product Design",
-    desc: "Spaced-repetition study app — wireframes to a hi-fi interactive prototype.",
+    year: "2023",
     href: "https://www.figma.com/proto/95QtUeX5RpYNsEE11iO0he/MemoRise?node-id=1-2&starting-point-node-id=1%3A2",
   },
 ];
+
+// Renders a project preview. Mobile-first projects show a portrait phone frame
+// on a soft backdrop; everything else uses a landscape screenshot. A missing or
+// broken image degrades gracefully to a placeholder instead of a broken icon.
+function Preview({
+  src,
+  alt,
+  mobile,
+}: {
+  src?: string;
+  alt: string;
+  mobile?: boolean;
+}) {
+  const [errored, setErrored] = useState(false);
+
+  if (!src || errored) {
+    return (
+      <div className="flex aspect-[16/10] w-full items-center justify-center rounded-sm border border-dashed border-line">
+        <span className="label">
+          {mobile ? "Mobile preview coming soon" : "No preview available"}
+        </span>
+      </div>
+    );
+  }
+
+  if (mobile) {
+    return (
+      <div className="flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-sm border border-line bg-accent-soft">
+        <div className="relative aspect-[9/19] h-[86%] overflow-hidden rounded-[1.5rem] border border-line bg-bg shadow-lg">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="220px"
+            className="object-cover object-top"
+            onError={() => setErrored(true)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-line bg-bg">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 60vw"
+        className="object-cover object-top"
+        onError={() => setErrored(true)}
+      />
+    </div>
+  );
+}
 
 export default function Projects() {
   // POPDOM (index 0) is expanded by default.
@@ -117,7 +190,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <div className="mb-16 flex items-baseline justify-between">
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Selected work
+            Things I&apos;ve built
           </h2>
           <span className="label">{work.length} projects</span>
         </div>
@@ -167,21 +240,11 @@ export default function Projects() {
                 >
                   <div className="overflow-hidden">
                     <div className="grid gap-8 pb-10 md:grid-cols-[1.5fr_1fr] md:items-center md:gap-12">
-                      {item.img ? (
-                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-line bg-bg">
-                          <Image
-                            src={item.img}
-                            alt={`${item.title} screenshot`}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 60vw"
-                            className="object-cover object-top"
-                          />
-                        </div>
-                      ) : (
-                        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-sm border border-dashed border-line">
-                          <span className="label">No preview available</span>
-                        </div>
-                      )}
+                      <Preview
+                        src={item.img}
+                        alt={`${item.title} screenshot`}
+                        mobile={item.mobile}
+                      />
 
                       <div>
                         <p className="text-sm font-medium text-accent">
@@ -193,8 +256,13 @@ export default function Projects() {
                           {item.desc}
                         </p>
 
+                        <p className="label mt-6">What I did</p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          {item.contribution}
+                        </p>
+
                         {item.stack && (
-                          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
                             {item.stack.map((s) => (
                               <span key={s} className="label">
                                 {s}
@@ -222,6 +290,34 @@ export default function Projects() {
             );
           })}
         </ul>
+
+        {/* Earlier work — compact, de-emphasized */}
+        <div className="mt-16">
+          <h3 className="label mb-6">Earlier work</h3>
+          <ul className="border-t border-line">
+            {earlier.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-baseline justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-accent-soft"
+                >
+                  <span className="font-display text-base font-bold tracking-tight transition-transform group-hover:translate-x-1">
+                    {item.title}
+                  </span>
+                  <span className="flex shrink-0 items-baseline gap-4 md:gap-6">
+                    <span className="label hidden sm:block">{item.role}</span>
+                    <span className="label tabular-nums">{item.year}</span>
+                    <span className="text-muted transition-colors group-hover:text-accent">
+                      ↗
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
