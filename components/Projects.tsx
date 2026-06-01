@@ -34,6 +34,16 @@ const work: Work[] = [
     stack: ["React", "TanStack Query", "Supabase", "Firebase", "PWA"],
   },
   {
+    title: "HOLODREAM AR",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Turn physical cards into immersive augmented-reality experiences — no app needed.",
+    contribution:
+      "Designed and built the product and its site end to end, including the in-browser AR experience.",
+    href: "https://holodream.app",
+    img: "/assets/work/holodream.png",
+  },
+  {
     title: "Project WAN: Chronicles",
     year: "2026",
     role: "Mobile Game · Shipped",
@@ -50,24 +60,13 @@ const work: Work[] = [
     stack: ["React", "Capacitor", "Supabase"],
   },
   {
-    title: "HOLODREAM AR",
+    title: "BID IT LINK",
     year: "2025",
     role: "Design + Build",
-    desc: "Turn physical cards into immersive augmented-reality experiences — no app needed.",
-    contribution:
-      "Designed and built the product and its site end to end, including the in-browser AR experience.",
-    href: "https://holodream.app",
-    img: "/assets/work/holodream.png",
-  },
-  {
-    title: "PROJECT WAN",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Official site for the P-pop idol group PROJECT WAN.",
-    contribution:
-      "Designed and built the official group site from scratch.",
-    href: "https://projectwan.live",
-    img: "/assets/work/projectwan.png",
+    desc: "Create auction links, share them anywhere, and collect bids.",
+    contribution: "Designed and built the product end to end.",
+    href: "https://biditlink.com",
+    img: "/assets/work/biditlink.png",
   },
   {
     title: "ANONYBOX",
@@ -78,24 +77,6 @@ const work: Work[] = [
       "Designed and built the product end to end — the embeddable comment widget and the dashboard.",
     href: "https://anonybox.space",
     img: "/assets/work/anonybox.png",
-  },
-  {
-    title: "DOMINION LABS STUDIO",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Studio site for a product and engineering lab — engineer your narrative.",
-    contribution: "Designed and built the studio's site from scratch.",
-    href: "https://dominionlabs.studio",
-    img: "/assets/work/dominionlabs.png",
-  },
-  {
-    title: "BID IT LINK",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Create auction links, share them anywhere, and collect bids.",
-    contribution: "Designed and built the product end to end.",
-    href: "https://biditlink.com",
-    img: "/assets/work/biditlink.png",
   },
   {
     title: "FOCUS STRIP",
@@ -110,6 +91,25 @@ const work: Work[] = [
       "/assets/work/focus-strip-mobile-2.png",
       "/assets/work/focus-strip-mobile-3.png",
     ],
+  },
+  {
+    title: "DOMINION LABS STUDIO",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Studio site for a product and engineering lab — engineer your narrative.",
+    contribution: "Designed and built the studio's site from scratch.",
+    href: "https://dominionlabs.studio",
+    img: "/assets/work/dominionlabs.png",
+  },
+  {
+    title: "PROJECT WAN",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Official site for the P-pop idol group PROJECT WAN.",
+    contribution:
+      "Designed and built the official group site from scratch.",
+    href: "https://projectwan.live",
+    img: "/assets/work/projectwan.png",
   },
 ];
 
