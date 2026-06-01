@@ -120,22 +120,44 @@ body {
 }
 
 /* ---------- Refined ambient motion ---------- */
-@keyframes drift {
-  0% {
-    transform: translate(0, 0);
+@keyframes driftA {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(44px, -34px) scale(1.06);
+  }
+  66% {
+    transform: translate(-26px, 22px) scale(0.96);
+  }
+}
+@keyframes driftB {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(0, -24px);
+    transform: translate(-52px, -40px) scale(1.1);
   }
+}
+@keyframes driftC {
+  0%,
   100% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translate(36px, 44px);
+  }
 }
-.animate-drift-slow {
-  animation: drift 16s ease-in-out infinite;
+.animate-drift-a {
+  animation: driftA 22s ease-in-out infinite;
 }
-.animate-drift-med {
-  animation: drift 12s ease-in-out infinite;
+.animate-drift-b {
+  animation: driftB 17s ease-in-out infinite;
+}
+.animate-drift-c {
+  animation: driftC 26s ease-in-out infinite;
 }
 
 @keyframes fadeUp {
@@ -153,8 +175,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-drift-slow,
-  .animate-drift-med,
+  .animate-drift-a,
+  .animate-drift-b,
+  .animate-drift-c,
   .animate-fade-up {
     animation: none;
   }

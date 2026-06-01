@@ -12,6 +12,7 @@ type Work = {
   href: string;
   img?: string;
   mobile?: boolean;
+  mobileImages?: string[];
   stack?: string[];
 };
 
@@ -24,8 +25,12 @@ const work: Work[] = [
     contribution:
       "Founded POPDOM and built the entire product end to end — product direction, UX, front-end, and backend, including the collection and drops systems.",
     href: "https://popdom.app",
-    img: "/assets/work/popdom-mobile.png",
     mobile: true,
+    mobileImages: [
+      "/assets/work/popdom-mobile-1.png",
+      "/assets/work/popdom-mobile-2.png",
+      "/assets/work/popdom-mobile-3.png",
+    ],
     stack: ["React", "TanStack Query", "Supabase", "Firebase", "PWA"],
   },
   {
@@ -36,8 +41,12 @@ const work: Work[] = [
     contribution:
       "Designed and developed the game and shipped it to the App Store, wrapping the React build natively with Capacitor.",
     href: "https://apps.apple.com/us/app/project-wan-chronicles/id6758196754",
-    img: "/assets/work/projectwan-chronicles-mobile.png",
     mobile: true,
+    mobileImages: [
+      "/assets/work/projectwan-chronicles-mobile-1.png",
+      "/assets/work/projectwan-chronicles-mobile-2.png",
+      "/assets/work/projectwan-chronicles-mobile-3.png",
+    ],
     stack: ["React", "Capacitor", "Supabase"],
   },
   {
@@ -95,8 +104,12 @@ const work: Work[] = [
     desc: "Track your projects and the time you spend on them.",
     contribution: "Designed and built the app from scratch.",
     href: "https://focus-strip.vercel.app",
-    img: "/assets/work/focus-strip-mobile.png",
     mobile: true,
+    mobileImages: [
+      "/assets/work/focus-strip-mobile-1.png",
+      "/assets/work/focus-strip-mobile-2.png",
+      "/assets/work/focus-strip-mobile-3.png",
+    ],
   },
 ];
 
@@ -123,47 +136,16 @@ const earlier = [
   },
 ];
 
-// Renders a project preview. Mobile-first projects show a portrait phone frame
-// on a soft backdrop; everything else uses a landscape screenshot. A missing or
-// broken image degrades gracefully to a placeholder instead of a broken icon.
-function Preview({
-  src,
-  alt,
-  mobile,
-}: {
-  src?: string;
-  alt: string;
-  mobile?: boolean;
-}) {
+const placeholder = (text: string) => (
+  <div className="flex aspect-[16/10] w-full items-center justify-center rounded-sm border border-dashed border-line">
+    <span className="label">{text}</span>
+  </div>
+);
+
+// Single landscape screenshot (desktop / web projects).
+function DesktopShot({ src, alt }: { src?: string; alt: string }) {
   const [errored, setErrored] = useState(false);
-
-  if (!src || errored) {
-    return (
-      <div className="flex aspect-[16/10] w-full items-center justify-center rounded-sm border border-dashed border-line">
-        <span className="label">
-          {mobile ? "Mobile preview coming soon" : "No preview available"}
-        </span>
-      </div>
-    );
-  }
-
-  if (mobile) {
-    return (
-      <div className="flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-sm border border-line bg-accent-soft">
-        <div className="relative aspect-[9/19] h-[86%] overflow-hidden rounded-[1.5rem] border border-line bg-bg shadow-lg">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes="220px"
-            className="object-cover object-top"
-            onError={() => setErrored(true)}
-          />
-        </div>
-      </div>
-    );
-  }
-
+  if (!src || errored) return placeholder("No preview available");
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-line bg-bg">
       <Image
@@ -176,6 +158,53 @@ function Preview({
       />
     </div>
   );
+}
+
+// Row of portrait phone frames (mobile-first projects). Any image that fails to
+// load drops out of the row; if none load, a placeholder shows instead.
+function MobileGallery({ images, alt }: { images: string[]; alt: string }) {
+  const [errored, setErrored] = useState<number[]>([]);
+  const allFailed = images.length === 0 || errored.length >= images.length;
+  if (allFailed) return placeholder("Mobile preview coming soon");
+
+  return (
+    <div className="flex aspect-[16/10] w-full items-center justify-center gap-3 overflow-x-auto rounded-sm border border-line bg-accent-soft p-4 sm:gap-4">
+      {images.map((src, i) =>
+        errored.includes(i) ? null : (
+          <div
+            key={src}
+            className="relative aspect-[9/19] h-full shrink-0 overflow-hidden rounded-[1.2rem] border border-line bg-bg shadow-md"
+          >
+            <Image
+              src={src}
+              alt={`${alt} ${i + 1}`}
+              fill
+              sizes="160px"
+              className="object-cover object-top"
+              onError={() => setErrored((prev) => [...prev, i])}
+            />
+          </div>
+        )
+      )}
+    </div>
+  );
+}
+
+// Renders a project preview: a phone-frame row for mobile-first projects, a
+// landscape screenshot otherwise. Missing/broken images degrade gracefully.
+function Preview({
+  img,
+  mobileImages,
+  alt,
+  mobile,
+}: {
+  img?: string;
+  mobileImages?: string[];
+  alt: string;
+  mobile?: boolean;
+}) {
+  if (mobile) return <MobileGallery images={mobileImages ?? []} alt={alt} />;
+  return <DesktopShot src={img} alt={alt} />;
 }
 
 export default function Projects() {
@@ -204,8 +233,11 @@ export default function Projects() {
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 py-7 text-left transition-colors hover:bg-accent-soft md:gap-8 md:py-8"
+                  className="group relative isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-7 text-left md:gap-8 md:px-5 md:py-8"
                 >
+                  {/* Inset highlight pill — sits within the full-width dividers */}
+                  <span className="pointer-events-none absolute inset-x-2 inset-y-1 -z-10 rounded-xl bg-accent-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:inset-x-3" />
+
                   <span className="label tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -241,7 +273,8 @@ export default function Projects() {
                   <div className="overflow-hidden">
                     <div className="grid gap-8 pb-10 md:grid-cols-[1.5fr_1fr] md:items-center md:gap-12">
                       <Preview
-                        src={item.img}
+                        img={item.img}
+                        mobileImages={item.mobileImages}
                         alt={`${item.title} screenshot`}
                         mobile={item.mobile}
                       />

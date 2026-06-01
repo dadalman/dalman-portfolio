@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const skills = [
   {
     group: "Frontend",
@@ -41,12 +39,14 @@ export default function AboutMe() {
             </h2>
             <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
               <div className="group relative aspect-[4/5] w-44 shrink-0 overflow-hidden rounded-sm border border-line sm:w-52">
-                <Image
-                  src="/assets/images/profile.png"
+                {/* Plain img on purpose — bypasses the Next optimizer, which has
+                    been flaky on this external drive. File is already small. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/images/profile.jpg"
                   alt="Denver Dalman"
-                  fill
-                  sizes="220px"
-                  className="object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
                 />
               </div>
               <div className="space-y-5 text-lg leading-relaxed text-muted">

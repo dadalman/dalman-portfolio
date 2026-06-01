@@ -4,10 +4,11 @@ export default function Landing() {
       id="home"
       className="relative overflow-hidden border-b border-line"
     >
-      {/* Refined ambient accents — subtle, single-hue */}
+      {/* Refined ambient accents — single-hue glows on a slow 2-D drift */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="animate-drift-slow absolute -right-24 top-10 h-72 w-72 rounded-full bg-accent/[0.06] blur-3xl" />
-        <div className="animate-drift-med absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-accent/[0.05] blur-3xl" />
+        <div className="animate-drift-a absolute -right-20 top-0 h-80 w-80 rounded-full bg-accent/[0.13] blur-3xl" />
+        <div className="animate-drift-b absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-accent/[0.10] blur-3xl" />
+        <div className="animate-drift-c absolute left-1/3 top-1/3 h-56 w-56 rounded-full bg-accent/[0.08] blur-3xl" />
       </div>
 
       <div className="mx-auto flex min-h-[calc(100vh-65px)] max-w-6xl flex-col justify-center px-6 py-24 md:px-10">
@@ -33,8 +34,10 @@ export default function Landing() {
             >
               POPDOM
             </a>
-            . 5 years building and shipping products end to end — from
-            interface to production.
+            .
+            <br />
+            5 years building and shipping products end to end — from interface
+            to production.
           </p>
 
           <div className="flex flex-col gap-3 md:items-end">

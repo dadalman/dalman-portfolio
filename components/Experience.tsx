@@ -73,7 +73,9 @@ export default function Experience() {
             Experience
           </h2>
           <p className="mb-12 text-sm leading-relaxed text-muted">
-            5 years building for the web — freelance since 2021.
+            5 years building for the web —
+            <br />
+            freelance since 2021.
           </p>
           <div className="border-t border-line">
             {roles.map((r) => {
@@ -122,9 +124,13 @@ export default function Experience() {
 
         {/* Recognition */}
         <div id="recognition" className="scroll-mt-16">
-          <h2 className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mb-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Recognition
           </h2>
+          <p className="mb-12 text-sm leading-relaxed text-muted">
+            Three first-place hackathon finishes building AI and community
+            products.
+          </p>
           <div className="border-t border-line">
             {awards.map((a) => (
               <a
