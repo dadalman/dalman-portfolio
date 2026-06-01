@@ -1,58 +1,98 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
+    // Only enable on devices with a real mouse (fine pointer + hover).
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    setActive(true);
+  }, []);
 
-    const moveCursor = (e: MouseEvent) => {
-      if (cursor) {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      }
+  useEffect(() => {
+    if (!active) return;
+
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
+
+    // Hide the native cursor only now that ours is live.
+    document.documentElement.classList.add("cursor-active");
+
+    // Start centered so the cursor is visible before the first move.
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let raf = 0;
+
+    const place = () => {
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    };
+    place();
+
+    const move = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      place();
     };
 
-    const clickCursor = () => {
-      if (cursor) {
-        cursor.classList.remove("click-animation");
-        void cursor.offsetWidth; // force reflow to restart animation
-        cursor.classList.add("click-animation");
-      }
+    const loop = () => {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      raf = requestAnimationFrame(loop);
     };
 
-    document.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mousedown", clickCursor);
+    const over = (e: MouseEvent) => {
+      const t = e.target as HTMLElement;
+      if (t.closest("a, button, input, textarea, [data-cursor]"))
+        ring.classList.add("cursor-ring--active");
+      else ring.classList.remove("cursor-ring--active");
+    };
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseover", over);
+    raf = requestAnimationFrame(loop);
 
     return () => {
-      document.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("mousedown", clickCursor);
+      document.documentElement.classList.remove("cursor-active");
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseover", over);
+      cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [active]);
+
+  if (!active) return null;
 
   return (
     <>
       <div
-        ref={cursorRef}
-        className="custom-cursor fixed top-0 left-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[9999] rounded-full bg-[#FFDCB4]/50 border border-[#FF8518]/60 backdrop-blur-[1.2px] shadow-md shadow-orange-300/30 transition-transform duration-200 ease-out"
+        ref={dotRef}
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-[6px] w-[6px] rounded-full bg-fg"
+        style={{ marginLeft: "-3px", marginTop: "-3px" }}
+      />
+      <div
+        ref={ringRef}
+        className="cursor-ring pointer-events-none fixed left-0 top-0 z-[9998] h-8 w-8 rounded-full border border-fg/40"
+        style={{ marginLeft: "-16px", marginTop: "-16px" }}
       />
       <style jsx global>{`
-        .custom-cursor.click-animation {
-          animation: clickPulse 0.3s ease-out;
+        .cursor-ring {
+          transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
+            border-color 0.2s ease, background-color 0.2s ease;
         }
-
-        @keyframes clickPulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.4);
-          }
-          100% {
-            transform: scale(1);
-          }
+        .cursor-ring--active {
+          width: 56px;
+          height: 56px;
+          margin-left: -28px;
+          margin-top: -28px;
+          border-color: var(--accent);
+          background-color: color-mix(in srgb, var(--accent) 12%, transparent);
         }
       `}</style>
     </>

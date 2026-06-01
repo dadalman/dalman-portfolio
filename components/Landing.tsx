@@ -2,69 +2,61 @@ export default function Landing() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden min-h-[calc(100vh-84px)] md:min-h-[calc(100vh-94px)] flex items-center justify-center px-4 text-neutral-900 "
+      className="relative overflow-hidden border-b border-line"
     >
-      {/* Animated Background Circles */}
-      <div className="absolute inset-0 -z-10 bg-light ">
-        {/* Orange Circles */}
-        <div className="absolute bg-orange-200 rounded-full w-52 h-52 md:w-72 md:h-72 top-10 left-10 opacity-30 animate-float-slow" />
-        <div className="absolute bg-orange-200 rounded-full w-24 h-24 md:w-36 md:h-36 bottom-16 right-16 opacity-20 animate-float-medium" />
-
-        {/* Cream Circles */}
-        <div className="absolute bg-[#FFDCB4] rounded-full w-32 h-32 md:w-48 md:h-48 bottom-20 right-10 opacity-20 animate-float-medium" />
-        <div className="hidden md:block absolute bg-[#FFDCB4] rounded-full w-40 h-40 top-1/4 right-1/4 opacity-25 animate-float-slow" />
-
-        {/* Dark Orange Circles */}
-        <div className="absolute bg-[#FF8518] rounded-full w-20 h-20 md:w-24 md:h-24 top-1/2 left-1/3 opacity-25 animate-float-fast" />
-        <div className="hidden md:block absolute bg-[#FF8518] rounded-full w-32 h-32 bottom-1/3 left-1/2 opacity-15 animate-float-medium" />
-
-        {/* Charcoal Circles */}
-        <div className="absolute bg-[#2C2C2C] rounded-full w-28 h-28 md:w-40 md:h-40 bottom-10 left-1/4 opacity-10 animate-float-slow" />
-        <div className="hidden md:block absolute bg-[#2C2C2C] rounded-full w-28 h-28 top-12 right-1/3 opacity-10 animate-float-fast" />
+      {/* Refined ambient accents — subtle, single-hue */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="animate-drift-slow absolute -right-24 top-10 h-72 w-72 rounded-full bg-accent/[0.06] blur-3xl" />
+        <div className="animate-drift-med absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-accent/[0.05] blur-3xl" />
       </div>
 
-      {/* Content */}
-      <div className="max-w-3xl text-center space-y-6 -mt-20">
-        <div>
-          <p className="text-sm tracking-wide uppercase text-gray-500 ">
-            Hello, I'm
-          </p>
-          <h1 className="text-4xl md:text-6xl font-extrabold mt-2">
-            DENVER ARQUILLANO DALMAN
-          </h1>
-        </div>
-
-        <p className="text-lg md:text-xl text-gray-600 ">
-          I am a <span className="font-semibold">front-end web developer</span>,{" "}
-          <span className="font-semibold">mobile developer</span>,{" "}
-          <span className="font-semibold">ui/ux designer</span>.
+      <div className="mx-auto flex min-h-[calc(100vh-65px)] max-w-6xl flex-col justify-center px-6 py-24 md:px-10">
+        <p className="label animate-fade-up mb-6 flex items-center gap-3">
+          <span className="inline-block h-px w-8 bg-accent" />
+          Based in the Philippines · Available for work
         </p>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
-          <a
-            href="#projects"
-            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition"
-          >
-            See Projects
-          </a>
-          <a
-            href="#design-process"
-            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-neutral-900 text-white hover:bg-neutral-700 transition"
-          >
-            Design Process
-          </a>
-          <a
-            href="#about"
-            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm border border-neutral-800 hover:bg-neutral-100 transition"
-          >
-            More About Me
-          </a>
-          <a
-            href="#contact"
-            className="w-[70vw] md:min-w-[170px] px-6 py-2 rounded-sm bg-primary text-black hover:bg-orange-300 transition"
-          >
-            Contact Me
-          </a>
+        <h1 className="animate-fade-up font-display text-[15vw] font-bold leading-[0.92] tracking-tight sm:text-[12vw] lg:text-[8.5rem]">
+          Denver
+          <br />
+          Dalman<span className="text-accent">.</span>
+        </h1>
+
+        <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
+          <p className="max-w-xl text-lg leading-relaxed text-muted md:text-xl">
+            Software engineer, designer, and founder of{" "}
+            <a
+              href="https://popdom.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fg underline decoration-accent decoration-2 underline-offset-4"
+            >
+              POPDOM
+            </a>
+            . I build and ship products end to end — from interface to
+            production.
+          </p>
+
+          <div className="flex flex-col gap-3 md:items-end">
+            <a
+              href="#work"
+              className="group inline-flex items-center justify-between gap-6 border border-fg px-6 py-3 text-sm font-medium transition-colors hover:bg-fg hover:text-bg md:w-64"
+            >
+              Selected work
+              <span className="transition-transform group-hover:translate-x-1">
+                ↓
+              </span>
+            </a>
+            <a
+              href="#contact"
+              className="group inline-flex items-center justify-between gap-6 border border-line px-6 py-3 text-sm font-medium transition-colors hover:border-fg md:w-64"
+            >
+              Get in touch
+              <span className="transition-transform group-hover:translate-x-1">
+                ↗
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

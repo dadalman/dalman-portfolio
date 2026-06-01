@@ -1,124 +1,93 @@
-import { Linkedin, Github, Instagram, Facebook, Mail } from "lucide-react";
+const socials = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/denver-dalman/" },
+  { label: "GitHub", href: "https://github.com/dadalman" },
+  { label: "Instagram", href: "https://www.instagram.com/davey_dalman/" },
+  { label: "X", href: "https://x.com/davey_dalman" },
+  { label: "Facebook", href: "https://www.facebook.com/DADalman08" },
+];
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="scroll-mt-12 py-20 -mb-20 px-6 bg-light  text-neutral-900 "
-    >
-      <div className="max-w-xl mx-auto text-center space-y-6">
-        <h2 className="text-4xl font-bold">CONTACT ME</h2>
-        <div className="w-16 h-1 mx-auto bg-primary-400" />
-        <p className="text-lg text-gray-700 ">
-          Got a project, collaboration idea, or just want to say hi? Let’s
-          connect!
-        </p>
+    <section id="contact" className="scroll-mt-16 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6 md:px-10">
+        <p className="label mb-6">Contact</p>
 
-        <form
-          action="https://formspree.io/f/xkgjlply"
-          method="POST"
-          className="space-y-4 mt-8"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            className="w-full p-3 rounded-sm bg-gray-100 focus:outline-none border-primary-200 focus:border-primary-400 border-1"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            className="w-full p-3 rounded-sm bg-gray-100  focus:outline-none border-primary-200 focus:border-primary-400 border-1"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={4}
-            className="w-full p-3 rounded-sm bg-gray-100  focus:outline-none border-primary-200 focus:border-primary-400 border-1"
-            required
-          ></textarea>
-          <button
-            type="submit"
-            className="px-6 py-3 bg-primary-400 hover:bg-primary-300 text-white rounded-md transition"
-          >
-            Send Message
-          </button>
-        </form>
+        <div className="grid gap-16 md:grid-cols-[1.1fr_1fr] md:items-start">
+          <div>
+            <h2 className="font-display text-[10vw] font-bold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+              Let&apos;s build
+              <br />
+              something<span className="text-accent">.</span>
+            </h2>
 
-        <div className="flex justify-center gap-6 mt-10 text-dark ">
-          {/* Email */}
-          <a
-            href="mailto:dadalmanofficial@gmail.com"
-            className="hover:opacity-80 transition"
-            title="Email"
-          >
-            <Mail className="w-7 h-7" />
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/denver-dalman/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition"
-            title="LinkedIn"
-          >
-            <Linkedin className="w-7 h-7" />
-          </a>
-
-          {/* GitHub */}
-          <a
-            href="https://github.com/dadalman"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition"
-            title="GitHub"
-          >
-            <Github className="w-7 h-7" />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/davey_dalman/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition"
-            title="Instagram"
-          >
-            <Instagram className="w-7 h-7" />
-          </a>
-
-          {/* X (formerly Twitter) - custom SVG */}
-          <a
-            href="https://x.com/davey_dalman"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition"
-            title="X"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-7 h-7"
-              viewBox="0 0 24 24"
-              fill="currentColor"
+            <a
+              href="mailto:dadalmanofficial@gmail.com"
+              className="mt-10 inline-block border-b-2 border-accent pb-1 text-lg transition-colors hover:text-accent md:text-2xl"
             >
-              <path d="M20.66 3H17.4L12 10.06 6.6 3H3l7.5 10L3 21h3.3l5.7-7.68L17.4 21h3.26L13.2 10.83 20.66 3Z" />
-            </svg>
-          </a>
+              dadalmanofficial@gmail.com
+            </a>
 
-          {/* Facebook */}
-          <a
-            href="https://www.facebook.com/DADalman08"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition"
-            title="Facebook"
+            <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label transition-colors hover:text-accent"
+                >
+                  {s.label} ↗
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Minimal form */}
+          <form
+            action="https://formspree.io/f/xkgjlply"
+            method="POST"
+            className="space-y-6"
           >
-            <Facebook className="w-7 h-7" />
-          </a>
+            <div>
+              <label className="label">Name</label>
+              <input
+                type="text"
+                name="name"
+                required
+                className="mt-2 w-full border-b border-line bg-transparent py-3 text-fg outline-none transition-colors placeholder:text-faint focus:border-accent"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label className="label">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                className="mt-2 w-full border-b border-line bg-transparent py-3 text-fg outline-none transition-colors placeholder:text-faint focus:border-accent"
+                placeholder="you@email.com"
+              />
+            </div>
+            <div>
+              <label className="label">Message</label>
+              <textarea
+                name="message"
+                rows={4}
+                required
+                className="mt-2 w-full resize-none border-b border-line bg-transparent py-3 text-fg outline-none transition-colors placeholder:text-faint focus:border-accent"
+                placeholder="What are you working on?"
+              />
+            </div>
+            <button
+              type="submit"
+              className="group inline-flex items-center justify-between gap-6 border border-fg px-6 py-3 text-sm font-medium transition-colors hover:bg-fg hover:text-bg"
+            >
+              Send message
+              <span className="transition-transform group-hover:translate-x-1">
+                ↗
+              </span>
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -1,95 +1,71 @@
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
+"use client";
+
 import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
+
+const links = [
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <>
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 md:py-4 py-4 shadow-md bg-primary">
-        {/* Left: Logo and Brand Name */}
-        <Link href="/" className="flex items-center space-x-3">
-          <img
-            src="/assets/images/profile-img.jpg"
-            alt="Logo"
-            className="w-13 h-13 rounded-full"
-          />
-          <span className="text-xl font-bold text-gray-800">DHAYNAMICO</span>
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+        <Link
+          href="/"
+          className="font-display text-base font-bold tracking-tight"
+        >
+          Denver Dalman<span className="text-accent">.</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6">
-          <a href="/" className="text-gray-600 hover:text-black text-xl">
-            Home
-          </a>
-          <a href="#about" className="text-gray-600 hover:text-black text-xl">
-            About
-          </a>
-          <a
-            href="#projects"
-            className="text-gray-600 hover:text-black text-xl"
-          >
-            Projects
-          </a>
-          <a
-            href="#design-process"
-            className="text-gray-600 hover:text-black text-xl"
-          >
-            Design
-          </a>
-          <a href="#contact" className="text-gray-600 hover:text-black text-xl">
-            Contact
-          </a>
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="label transition-colors hover:text-fg"
+            >
+              {l.label}
+            </a>
+          ))}
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden z-50" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-9 w-9 place-items-center"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile Fullscreen Menu Overlay */}
-      {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white  flex flex-col items-center justify-center space-y-6 transition-opacity">
-          <a
-            href="/"
-            className="text-2xl text-gray-800  hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="text-2xl text-gray-800  hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </a>
-          <a
-            href="#projects"
-            className="text-2xl text-gray-800  hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Projects
-          </a>
-          <a
-            href="#design-process"
-            className="text-2xl text-gray-800  hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Design
-          </a>
-          <a
-            href="#contact"
-            className="text-2xl text-gray-800  hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </a>
+      {open && (
+        <div className="border-t border-line bg-bg md:hidden">
+          <div className="flex flex-col px-6 py-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-line py-4 font-display text-xl last:border-0"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
       )}
-    </>
+    </header>
   );
 }

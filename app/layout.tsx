@@ -14,9 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DHAYNAMICO",
-  description: "Denver Dalman's Portfolio",
+  title: "Denver Dalman — Software Engineer & Founder",
+  description:
+    "Denver Dalman — software engineer, designer, and founder of POPDOM. Selected work and experience.",
 };
+
+// Set the theme before paint to avoid a flash of the wrong theme.
+const themeScript = `
+(function () {
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (t === 'dark') document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -24,7 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
