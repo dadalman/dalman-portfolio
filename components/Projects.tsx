@@ -233,11 +233,8 @@ export default function Projects() {
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="group relative isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-7 text-left md:gap-8 md:px-5 md:py-8"
+                  className="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 py-7 text-left transition-colors hover:bg-accent-soft md:gap-8 md:py-8"
                 >
-                  {/* Inset highlight pill — sits within the full-width dividers */}
-                  <span className="pointer-events-none absolute inset-x-2 inset-y-1 -z-10 rounded-xl bg-accent-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:inset-x-3" />
-
                   <span className="label tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
