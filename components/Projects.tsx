@@ -182,7 +182,7 @@ function MobileGallery({ images, alt }: { images: string[]; alt: string }) {
   if (allFailed) return placeholder("Mobile preview coming soon");
 
   return (
-    <div className="flex aspect-[16/10] w-full items-center justify-center gap-3 overflow-x-auto rounded-sm border border-line bg-accent-soft p-4 sm:gap-4">
+    <div className="flex aspect-[16/10] w-full items-center justify-center gap-3 overflow-x-auto rounded-sm border border-line bg-fg/[0.04] p-4 sm:gap-4">
       {images.map((src, i) =>
         errored.includes(i) ? null : (
           <div
@@ -254,7 +254,7 @@ export default function Projects() {
                   </span>
 
                   <div
-                    className={`min-w-0 transition-transform duration-300 group-hover:translate-x-2 ${
+                    className={`flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1.5 transition-transform duration-300 group-hover:translate-x-2 ${
                       isOpen ? "translate-x-2" : ""
                     }`}
                   >
@@ -265,7 +265,7 @@ export default function Projects() {
                     >
                       {item.title}
                     </h3>
-                    <span className="label mt-2 inline-block rounded-full border border-line px-2.5 py-0.5">
+                    <span className="label shrink-0 rounded-full border border-line px-2.5 py-0.5">
                       {item.tag}
                     </span>
                   </div>
