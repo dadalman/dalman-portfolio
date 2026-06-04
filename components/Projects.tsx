@@ -5,6 +5,7 @@ import Image from "next/image";
 
 type Work = {
   title: string;
+  tag: string;
   year: string;
   role: string;
   desc: string;
@@ -19,6 +20,7 @@ type Work = {
 const work: Work[] = [
   {
     title: "POPDOM",
+    tag: "Web App",
     year: "2026",
     role: "Founder",
     desc: "A collectibles platform for idol culture — artists drop digital and physical photocards with rarity tiers, and fans collect and trade them in a built-in marketplace.",
@@ -35,16 +37,23 @@ const work: Work[] = [
   },
   {
     title: "HOLODREAM AR",
+    tag: "AR Web App",
     year: "2025",
     role: "Design + Build",
     desc: "Turn physical cards into immersive augmented-reality experiences — no app needed.",
     contribution:
       "Designed and built the product and its site end to end, including the in-browser AR experience.",
     href: "https://holodream.app",
-    img: "/assets/work/holodream.png",
+    mobile: true,
+    mobileImages: [
+      "/assets/work/holodream-mobile-1.png",
+      "/assets/work/holodream-mobile-2.png",
+      "/assets/work/holodream-mobile-3.png",
+    ],
   },
   {
-    title: "Project WAN: Chronicles",
+    title: "PROJECT WAN: CHRONICLES",
+    tag: "iOS App",
     year: "2026",
     role: "Mobile Game · Shipped",
     desc: "The official PROJECT WAN game — built and shipped to the App Store.",
@@ -61,6 +70,7 @@ const work: Work[] = [
   },
   {
     title: "BID IT LINK",
+    tag: "Web App",
     year: "2025",
     role: "Design + Build",
     desc: "Create auction links, share them anywhere, and collect bids.",
@@ -70,6 +80,7 @@ const work: Work[] = [
   },
   {
     title: "ANONYBOX",
+    tag: "Web App",
     year: "2025",
     role: "Design + Build",
     desc: "Anonymous, embeddable comment sections you can drop anywhere.",
@@ -80,6 +91,7 @@ const work: Work[] = [
   },
   {
     title: "FOCUS STRIP",
+    tag: "Web App",
     year: "2025",
     role: "Design + Build",
     desc: "Track your projects and the time you spend on them.",
@@ -94,6 +106,7 @@ const work: Work[] = [
   },
   {
     title: "DOMINION LABS STUDIO",
+    tag: "Website",
     year: "2025",
     role: "Design + Build",
     desc: "Studio site for a product and engineering lab — engineer your narrative.",
@@ -103,6 +116,7 @@ const work: Work[] = [
   },
   {
     title: "PROJECT WAN",
+    tag: "Website",
     year: "2025",
     role: "Design + Build",
     desc: "Official site for the P-pop idol group PROJECT WAN.",
@@ -239,13 +253,22 @@ export default function Projects() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  <h3
-                    className={`font-display text-2xl font-bold tracking-tight transition-all duration-300 group-hover:translate-x-2 sm:text-3xl md:text-4xl ${
-                      isOpen ? "translate-x-2 text-accent" : ""
+                  <div
+                    className={`min-w-0 transition-transform duration-300 group-hover:translate-x-2 ${
+                      isOpen ? "translate-x-2" : ""
                     }`}
                   >
-                    {item.title}
-                  </h3>
+                    <h3
+                      className={`font-display text-2xl font-bold tracking-tight transition-colors duration-300 sm:text-3xl md:text-4xl ${
+                        isOpen ? "text-accent" : ""
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
+                    <span className="label mt-2 inline-block rounded-full border border-line px-2.5 py-0.5">
+                      {item.tag}
+                    </span>
+                  </div>
 
                   <div className="flex items-center gap-4 md:gap-8">
                     <span className="label tabular-nums hidden sm:block">
