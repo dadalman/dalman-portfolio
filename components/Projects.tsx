@@ -52,21 +52,32 @@ const work: Work[] = [
     ],
   },
   {
-    title: "PROJECT WAN: CHRONICLES",
-    tag: "iOS App",
+    title: "ECLIPSE PROTOCOL",
+    tag: "iOS Game · Bullet Hell",
     year: "2026",
     role: "Mobile Game · Shipped",
-    desc: "The official PROJECT WAN game — built and shipped to the App Store.",
+    desc: "An auto-targeting bullet-hell game featuring exclusive PROJECT WAN content — built and shipped to the App Store.",
     contribution:
       "Designed and developed the game and shipped it to the App Store, wrapping the React build natively with Capacitor.",
     href: "https://apps.apple.com/us/app/project-wan-chronicles/id6758196754",
     mobile: true,
     mobileImages: [
-      "/assets/work/projectwan-chronicles-mobile-1.png",
-      "/assets/work/projectwan-chronicles-mobile-2.png",
-      "/assets/work/projectwan-chronicles-mobile-3.png",
+      "/assets/work/eclipse-protocol-mobile-1.webp",
+      "/assets/work/eclipse-protocol-mobile-2.webp",
+      "/assets/work/eclipse-protocol-mobile-3.webp",
     ],
     stack: ["React", "Capacitor", "Supabase"],
+  },
+  {
+    title: "PROJECT WAN",
+    tag: "Website",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Official site for the P-pop idol group PROJECT WAN.",
+    contribution:
+      "Designed and built the official group site from scratch.",
+    href: "https://projectwan.live",
+    img: "/assets/work/projectwan.png",
   },
   {
     title: "BID IT LINK",
@@ -113,17 +124,6 @@ const work: Work[] = [
     contribution: "Designed and built the studio's site from scratch.",
     href: "https://dominionlabs.studio",
     img: "/assets/work/dominionlabs.png",
-  },
-  {
-    title: "PROJECT WAN",
-    tag: "Website",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Official site for the P-pop idol group PROJECT WAN.",
-    contribution:
-      "Designed and built the official group site from scratch.",
-    href: "https://projectwan.live",
-    img: "/assets/work/projectwan.png",
   },
 ];
 
