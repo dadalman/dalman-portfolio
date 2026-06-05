@@ -182,7 +182,7 @@ function MobileGallery({ images, alt }: { images: string[]; alt: string }) {
   if (allFailed) return placeholder("Mobile preview coming soon");
 
   return (
-    <div className="flex aspect-[16/10] w-full items-center justify-center gap-3 overflow-x-auto rounded-sm border border-line bg-fg/[0.04] p-4 sm:gap-4">
+    <div className="flex aspect-[16/10] w-full items-center justify-center gap-3 overflow-x-auto rounded-sm border border-line bg-transparent p-4 sm:gap-4">
       {images.map((src, i) =>
         errored.includes(i) ? null : (
           <div
