@@ -52,6 +52,17 @@ const work: Work[] = [
     ],
   },
   {
+    title: "PROJECT WAN",
+    tag: "Website",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Official site for the P-pop idol group PROJECT WAN.",
+    contribution:
+      "Designed and built the official group site from scratch.",
+    href: "https://projectwan.live",
+    img: "/assets/work/projectwan.png",
+  },
+  {
     title: "ECLIPSE PROTOCOL",
     tag: "iOS Game · Bullet Hell",
     year: "2026",
@@ -69,15 +80,19 @@ const work: Work[] = [
     stack: ["React", "Capacitor", "Supabase"],
   },
   {
-    title: "PROJECT WAN",
-    tag: "Website",
+    title: "FOCUS STRIP",
+    tag: "Web App",
     year: "2025",
     role: "Design + Build",
-    desc: "Official site for the P-pop idol group PROJECT WAN.",
-    contribution:
-      "Designed and built the official group site from scratch.",
-    href: "https://projectwan.live",
-    img: "/assets/work/projectwan.png",
+    desc: "Track your projects and the time you spend on them.",
+    contribution: "Designed and built the app from scratch.",
+    href: "https://focus-strip.vercel.app",
+    mobile: true,
+    mobileImages: [
+      "/assets/work/focus-strip-mobile-1.png",
+      "/assets/work/focus-strip-mobile-2.png",
+      "/assets/work/focus-strip-mobile-3.png",
+    ],
   },
   {
     title: "BID IT LINK",
@@ -99,21 +114,6 @@ const work: Work[] = [
       "Designed and built the product end to end — the embeddable comment widget and the dashboard.",
     href: "https://anonybox.space",
     img: "/assets/work/anonybox.png",
-  },
-  {
-    title: "FOCUS STRIP",
-    tag: "Web App",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Track your projects and the time you spend on them.",
-    contribution: "Designed and built the app from scratch.",
-    href: "https://focus-strip.vercel.app",
-    mobile: true,
-    mobileImages: [
-      "/assets/work/focus-strip-mobile-1.png",
-      "/assets/work/focus-strip-mobile-2.png",
-      "/assets/work/focus-strip-mobile-3.png",
-    ],
   },
   {
     title: "DOMINION LABS STUDIO",
