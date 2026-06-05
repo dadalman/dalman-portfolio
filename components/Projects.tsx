@@ -95,6 +95,16 @@ const work: Work[] = [
     ],
   },
   {
+    title: "DOMINION LABS STUDIO",
+    tag: "Website",
+    year: "2025",
+    role: "Design + Build",
+    desc: "Studio site for a product and engineering lab — engineer your narrative.",
+    contribution: "Designed and built the studio's site from scratch.",
+    href: "https://dominionlabs.studio",
+    img: "/assets/work/dominionlabs.png",
+  },
+  {
     title: "BID IT LINK",
     tag: "Web App",
     year: "2025",
@@ -114,16 +124,6 @@ const work: Work[] = [
       "Designed and built the product end to end — the embeddable comment widget and the dashboard.",
     href: "https://anonybox.space",
     img: "/assets/work/anonybox.png",
-  },
-  {
-    title: "DOMINION LABS STUDIO",
-    tag: "Website",
-    year: "2025",
-    role: "Design + Build",
-    desc: "Studio site for a product and engineering lab — engineer your narrative.",
-    contribution: "Designed and built the studio's site from scratch.",
-    href: "https://dominionlabs.studio",
-    img: "/assets/work/dominionlabs.png",
   },
 ];
 
